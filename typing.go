@@ -21,15 +21,23 @@ func main() {
 		time.Sleep(time.Second)
 	}
 
+	var corcnt, miscnt int
+
 	for _, v := range datas {
 		fmt.Println(v)
 		fmt.Print("input: ")
 		var in string
 		fmt.Scanln(&in)
 		if v == in {
+			corcnt++
 			fmt.Println("○")
 		} else {
+			miscnt++
 			fmt.Println("×")
 		}
 	}
+	
+	// 結果の出力
+	fmt.Printf("[正誤] 正解: %d, 誤り: %d\n", corcnt, miscnt)
+
 }
