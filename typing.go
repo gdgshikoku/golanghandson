@@ -25,19 +25,28 @@ func main() {
 	var corpct, mispct int
 
 	for _, v := range datas {
+		// 単語を表示
 		fmt.Println(v)
+		// 開始時間をセット
+		stm := time.Now()
+		// 入力欄を表示
 		fmt.Print("input: ")
+		// 入力内容を取得して比較
 		var in string
 		fmt.Scanln(&in)
+		// かかった時間を取得
+		etm := time.Since(stm)
+		// 入力結果を表示
 		if v == in {
 			corcnt++
-			fmt.Println("○")
+			fmt.Println("○", etm)
 		} else {
 			miscnt++
-			fmt.Println("×")
+			fmt.Println("×", etm)
 		}
 	}
 
+	// 結果の計算
 	sumcnt = corcnt + miscnt
 	corpct = int(float64(corcnt)/float64(sumcnt)*100)
 	mispct = int(float64(miscnt)/float64(sumcnt)*100)
