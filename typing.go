@@ -1,6 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
+
+var countdown = 3
 
 func main() {
 	var datas [5]string
@@ -9,6 +14,12 @@ func main() {
 	datas[2] = "meeting"
 	datas[3] = "in"
 	datas[4] = "kagawa"
+
+	// カウントダウン
+	for i := countdown; i > 0; i-- {
+		fmt.Println(i)
+		time.Sleep(time.Second)
+	}
 
 	for _, v := range datas {
 		fmt.Println(v)
