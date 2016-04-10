@@ -21,7 +21,8 @@ func main() {
 		time.Sleep(time.Second)
 	}
 
-	var corcnt, miscnt int
+	var corcnt, miscnt, sumcnt int
+	var corpct, mispct int
 
 	for _, v := range datas {
 		fmt.Println(v)
@@ -36,8 +37,12 @@ func main() {
 			fmt.Println("×")
 		}
 	}
+
+	sumcnt = corcnt + miscnt
+	corpct = int(float64(corcnt)/float64(sumcnt)*100)
+	mispct = int(float64(miscnt)/float64(sumcnt)*100)
 	
 	// 結果の出力
 	fmt.Printf("[正誤] 正解: %d, 誤り: %d\n", corcnt, miscnt)
-
+	fmt.Printf("[正誤率] 正解: %d％, 誤り: %d％\n", corpct, mispct)
 }
